@@ -15,17 +15,12 @@ app.use(cors({
   }));
   
 const url="mongodb+srv://zaidkhan262523:1234Khan@cluster0.ewljkrr.mongodb.net/research";
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(url);
 
 app.use('/api', uploadRoute);
 app.get('/zaid',async(req,res)=>{
-    const user= await Company.find();
-    res.send({message:"hello it live",user});
+    res.send({message:"hello it live"});
 
 })
 
-const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(3002, () => console.log(`Server running on port 3002`));
