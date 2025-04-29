@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3001', 'https://your-frontend.vercel.app']
+    origin: ['https://research-frontend-two.vercel.app/']
   }));
   
 mongoose.connect(process.env.MONGO_URI, {
