@@ -6,11 +6,13 @@ require('dotenv').config();
 const uploadRoute = require('./routes/upload');
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 app.use(cors({
-    origin: ['https://research-frontend-two.vercel.app/']
+    origin: 'https://research-frontend-two.vercel.app', 
+    methods: ['GET', 'POST'],
+    credentials: true,
   }));
+  
   
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
