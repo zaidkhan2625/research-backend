@@ -4,11 +4,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 const uploadRoute = require('./routes/upload');
+const Company = require('./models/Company');
 
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://research-frontend-two.vercel.app', 
+    origin: ['http://localhost:3001', 'https://your-frontend-url.com'],
     methods: ['GET', 'POST'],
     credentials: true,
   }));
@@ -20,8 +21,9 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.use('/api', uploadRoute);
-app.get('/zaid',(req,res)=>{
-    res.send({message:"hello it live"});
+app.get('/zaid',async(req,res)=>{
+    const user= await Company.find();
+    res.send({message:"hello it live",user});
 
 })
 
