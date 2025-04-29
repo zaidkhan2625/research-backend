@@ -14,8 +14,8 @@ app.use(cors({
     credentials: true,
   }));
   
-  
-mongoose.connect(process.env.MONGO_URI, {
+const url="mongodb+srv://zaidkhan262523:1234Khan@cluster0.ewljkrr.mongodb.net/research";
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
