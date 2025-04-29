@@ -9,7 +9,7 @@ const Company = require('./models/Company');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://your-frontend-url.com'],
+  origin: ['http://localhost:3000', 'https://research-frontend-llc.netlify.app'],
     methods: ['GET', 'POST'],
     credentials: true,
   }));
