@@ -18,6 +18,10 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.use('/api', uploadRoute);
+app.get('/zaid',(req,res)=>{
+    res.send({message:"hello it live"});
+
+})
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
