@@ -9,13 +9,18 @@ const Company = require('./models/Company');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3001', 'https://your-frontend-url.com'],
+    origin: ['http://localhost:3000', 'https://your-frontend-url.com'],
     methods: ['GET', 'POST'],
     credentials: true,
   }));
   
 const url="mongodb+srv://zaidkhan262523:1234Khan@cluster0.ewljkrr.mongodb.net/research";
-mongoose.connect(url);
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('✅ MongoDB connected successfully'))
+.catch((err) => console.error('❌ MongoDB connection error:', err));
 
 app.use('/api', uploadRoute);
 app.get('/zaid',async(req,res)=>{
